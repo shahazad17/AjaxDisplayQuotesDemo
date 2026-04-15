@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -32,5 +33,21 @@ namespace AjaxDemoDisplayQuotes
         {
          lblquotes.Text = quotes[rnd.Next(quotes.Count)]; 
         }
+
+        protected void btnLoadData_Click(object sender, EventArgs e)
+        {
+            // Simulate a delay to show progress
+            Thread.Sleep(3000);
+            lblMessage.Text = "Data loaded successfully at " + DateTime.Now.ToString();
+        }
     }
-}
+    }
+
+
+/*
+ *   <!--
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                </Triggers>
+                    -->
+*/
